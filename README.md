@@ -15,6 +15,8 @@ A walkthrough for setting up a Claude Cowork workspace from scratch. You'll end 
 
 Built for anyone — technical or not.
 
+> **Two ways to use this guide.** The default path is **copy-paste prompts** — you create an empty folder and Claude builds the structure for you, no download needed. If you'd rather have everything pre-built, there's an **optional starter download** in Phase 3 (ZIP or GitHub template). Either path lands you at the same spot.
+
 ---
 
 ## The philosophy in 60 seconds
@@ -104,47 +106,112 @@ Leave the folder empty. Close the window.
 
 ---
 
-## Phase 3: Verify the starter structure
+## Phase 3: Build the workspace structure
 
-This starter folder already has the structure built for you. Just verify it's all there.
+Two methods. Pick one — they land in the same spot.
 
-**Step 6 — Open your workspace folder in Finder (Mac) or File Explorer (Windows). You should see:**
+### Method A — Have Claude build it for you (default, no download)
+
+This is the recommended path. Copy the prompt below into Claude. Takes about 30 seconds.
+
+````
+I'm setting up my Cowork workspace for the first time. Please create this exact structure in my current workspace folder:
+
+1. Create a file at the top of my workspace folder called CLAUDE.md with this content:
+
+---
+# My Cowork Workspace
+
+## Session start behavior
+At the start of every session, read all files in the `context/` folder before responding. Use what you find to inform your work — don't announce it, just be informed by it.
+
+## Folder structure
+- `context/` — standing context about me. Update when preferences change.
+- `projects/` — one subfolder per project. Each project is self-contained with its own CLAUDE.md, inputs, and outputs.
+
+## Project conventions
+When I start a new project:
+- Create a new folder under `projects/` named after the project
+- Inside it, create: CLAUDE.md (for project-specific rules), inputs/ (for source material), outputs/ (for deliverables)
+- Save all work for that project inside its project folder — never outside it
+
+## Environment notes
+This workspace may be used in both Cowork and Claude Code. Use relative paths and generic tool references so instructions work in either environment.
+---
+
+2. Create a folder called `context/` with three empty files: about-me.md, my-voice.md, my-preferences.md
+
+3. Create an empty folder called `projects/`
+
+When done, list everything you created so I can verify.
+````
+
+### Method B — Download the pre-built starter (optional shortcut)
+
+If you'd rather skip the prompt and have everything ready instantly — including all the prompts files saved locally for future use:
+
+1. Visit [github.com/bronsonelliott/claude-cowork-starter](https://github.com/bronsonelliott/claude-cowork-starter)
+2. Click the green **"Code"** button → **"Download ZIP"** *(or "Use this template" if you want your own GitHub copy)*
+3. Unzip and place the contents inside your `Cowork-Workspace` folder
+4. Restart your Cowork session so it picks up the new files
+
+### Verify either method worked
+
+**Step 6 — Check your folder.** Open it in Finder (Mac) or File Explorer (Windows). Either method should produce at minimum:
 
 ```
 Cowork-Workspace/
-├── START-HERE.md
-├── README.md              ← you're reading this
-├── CLAUDE.md              ← workspace rules (already configured)
+├── CLAUDE.md
 ├── context/
-│   ├── about-me.md       ← stub, ready to fill out
-│   ├── my-voice.md       ← stub, ready to fill out
-│   └── my-preferences.md ← stub, ready to fill out
-├── prompts/
-│   ├── 01-setup-interview.md
-│   ├── 02-new-project.md
-│   ├── 03-migrate-from-settings.md
-│   └── 04-verify-setup.md
+│   ├── about-me.md
+│   ├── my-voice.md
+│   └── my-preferences.md
 └── projects/
-    └── README.md          ← explains how project folders work
 ```
 
-If everything's there, you're ready for Phase 4. If anything's missing, your starter folder didn't unzip correctly — re-download it.
-
-> **If you're building from scratch (no starter folder):** see the appendix at the end of this guide for the prompt to create this structure manually.
+If you used Method B, you'll *also* see `README.md`, `START-HERE.md`, `prompts/`, `LICENSE`, and `projects/README.md`. Both are valid setups.
 
 ---
 
 ## Phase 4: Fill out your context files
 
-**Step 7 — Open `prompts/01-setup-interview.md`**, copy the prompt inside it, and paste into Claude.
+**Step 7 — Run the setup interview.** Copy the prompt below into Claude. It will interview you for about 15 minutes and write your three context files automatically.
 
-Claude will interview you for about 15 minutes — covering who you are, your voice (optional), and your preferences — then write the results to your three context files automatically.
+````
+Interview me to fill out all three of my context files at once: about-me.md, my-voice.md, and my-preferences.md.
+
+Use AskUserQuestion, one question at a time. Ask roughly 12-15 questions total covering:
+
+WHO I AM (3-4 questions)
+- Role, industry, audience
+- How I work (tools, process, what "done" looks like)
+- What a good week looks like
+
+MY VOICE (3-4 questions — SKIP if I don't create written content)
+- Tone and voice I use
+- Words and phrases I always use vs. never use
+- Examples of writing I love and hate
+
+MY PREFERENCES (4-5 questions)
+- How I want Claude to communicate with me (casual/formal, short/detailed, bullets/prose)
+- When I want Claude to just do the thing vs. push back or ask first
+- How I want to receive information (tables, lists, plain text)
+- What I hate in AI responses (things to never do)
+- Non-negotiable rules
+
+If I say "that's enough," stop and compile what we have.
+
+After the interview, write three separate files:
+- `context/about-me.md` (under 1,500 tokens)
+- `context/my-voice.md` (under 1,000 tokens) — skip if I don't create content
+- `context/my-preferences.md` (under 1,000 tokens)
+
+Use clear section headers in each file. Replace any existing content in those files.
+````
 
 **Tip:** if you say "that's enough" at any point, Claude will stop and compile what you've shared so far.
 
-### Alternative: three separate interviews
-
-If you want a deeper, more thorough exploration of each area, see the Appendix at the end of this guide for three separate interview prompts you can run individually.
+> **Used Method B?** This same prompt is saved at `prompts/01-setup-interview.md` for future use. Want a deeper, slower path? See Appendix A for three separate single-area interview prompts.
 
 ---
 
@@ -152,17 +219,61 @@ If you want a deeper, more thorough exploration of each area, see the Appendix a
 
 **Step 8 — Start a fresh Cowork session.** Close your current session and reopen, selecting the same `Cowork-Workspace` folder.
 
-**Step 9 — Verify context is loading.** Open `prompts/04-verify-setup.md`, copy the prompt inside, and paste it into Claude. It will tell you what context loaded successfully and flag any problems.
+**Step 9 — Verify context loaded.** Copy the prompt below into Claude.
 
-Or just ask informally: *"What do you know about me based on my workspace context?"* Claude should respond with specifics — your role, preferences, tone. If you get generic answers, see the troubleshooting table at the end of this guide.
+````
+Run a setup verification on my Cowork workspace. Check the following and report back:
+
+1. Did you read CLAUDE.md at the workspace level? Confirm what folder I'm in.
+
+2. Did you read the files in `context/`? Tell me what you learned about:
+   - Who I am (from about-me.md)
+   - My voice (from my-voice.md, if filled in)
+   - My preferences (from my-preferences.md)
+
+3. List any context files that appear empty or contain only the original placeholder/stub content.
+
+4. List the projects (if any) you can see in `projects/`.
+
+5. Flag any obvious problems — missing files, contradictions in my context, or anything that looks misconfigured.
+
+Be honest. If something isn't working, tell me clearly so I can fix it.
+````
+
+Claude should report back specifics — your role, preferences, tone — and flag any problems. If you get generic answers, see the troubleshooting table at the end of this guide.
 
 ---
 
 ## Phase 6: Start your first real project
 
-**Step 10 — Open `prompts/02-new-project.md`**, copy the prompt inside, and paste into Claude.
+**Step 10 — Set up a new project.** Copy the prompt below into Claude.
 
-Claude will ask for the project name, create the folder structure (CLAUDE.md, inputs/, outputs/), then ask 5 short questions about project-specific rules and fill in the project CLAUDE.md from your answers. Takes about 2-3 minutes total.
+````
+I'm starting a new project. Please help me set it up.
+
+1. Ask me the project name, then create a folder with that name inside `projects/`.
+
+2. Inside the new project folder, create:
+   - A CLAUDE.md file (you'll fill this in from my answers below)
+   - An empty `inputs/` folder (for source material, research, references)
+   - An empty `outputs/` folder (for finished deliverables)
+
+3. Ask me these questions using AskUserQuestion, ONE at a time. Skip any I say "N/A" to:
+   - What's this project about in 1-2 sentences?
+   - Who's the audience for the outputs?
+   - Any tone or voice rules that differ from my defaults? (e.g., "formal, no contractions")
+   - Any formatting rules? (e.g., "cite sources APA-style", "keep under 500 words")
+   - Anything else Claude should know or do differently for this project?
+
+4. Write my answers into the project's CLAUDE.md in clear sections. Keep it short.
+
+5. When done, confirm by showing me:
+   - The folder structure you created
+   - A summary of the project-specific rules
+   - A reminder that inputs go in `inputs/` and finished work goes in `outputs/`
+````
+
+Takes about 2-3 minutes total.
 
 **Where to put files as you work:**
 
@@ -263,7 +374,29 @@ If you already have content in Personal Preferences or Cowork Global Instruction
 
 If you already have well-written preferences in settings, this is the fastest way to migrate. Claude reads your existing content and splits it across the right context files for you.
 
-**Use `prompts/03-migrate-from-settings.md`** — it has the full instructions and the prompt to use. Open that file, follow the steps inside, and you'll be migrated in about 5 minutes.
+Copy the prompt below into Claude — REPLACE the `[PASTE YOUR EXISTING PREFERENCES HERE]` block with your actual Settings content first.
+
+````
+I'm migrating my existing Claude preferences into my workspace context files. Below is the content currently in my Personal Preferences and/or Cowork Global Instructions. Please:
+
+1. Read through it carefully
+2. Split the content across my three context files based on what each section is about:
+   - `context/about-me.md` → who I am, role, background, how I think, my situation
+   - `context/my-voice.md` → how I write or speak, tone, words I use or avoid (skip if not applicable)
+   - `context/my-preferences.md` → how I want you to communicate with me, formatting, working style, rules, error handling
+3. Write each file to its location in `context/` — REPLACE any existing content in those files
+4. Show me a summary of what content went into each file
+5. Flag anything that didn't clearly fit in one of the three — I'll decide where it goes
+
+After you're done, I'll review the files. If they look good, I'll clear my Settings to avoid duplicate context.
+
+Here's my existing content:
+---
+[PASTE YOUR EXISTING PREFERENCES HERE]
+---
+````
+
+> If you used Method B in Phase 3, this is also saved at `prompts/03-migrate-from-settings.md`.
 
 ### Option B: Fresh migration via interview (more thorough)
 
@@ -300,47 +433,9 @@ If you're happy with your existing Personal Preferences and don't want to change
 
 ---
 
-## Appendix A: Building from scratch (without the starter folder)
+## Appendix A: Separate single-area interview prompts
 
-If you didn't use this starter and want to build the structure manually, paste this prompt into Claude after opening an empty workspace folder:
-
-````
-I'm setting up my Cowork workspace for the first time. Please create this exact structure in my current workspace folder:
-
-1. Create a file at the top of my workspace folder called CLAUDE.md with this content:
-
----
-# My Cowork Workspace
-
-## Session start behavior
-At the start of every session, read all files in the `context/` folder before responding. Use what you find to inform your work — don't announce it, just be informed by it.
-
-## Folder structure
-- `context/` — standing context about me. Update when preferences change.
-- `projects/` — one subfolder per project. Each project is self-contained with its own CLAUDE.md, inputs, and outputs.
-
-## Project conventions
-When I start a new project:
-- Create a new folder under `projects/` named after the project
-- Inside it, create: CLAUDE.md (for project-specific rules), inputs/ (for source material), outputs/ (for deliverables)
-- Save all work for that project inside its project folder — never outside it
-
-## Environment notes
-This workspace may be used in both Cowork and Claude Code. Use relative paths and generic tool references so instructions work in either environment.
----
-
-2. Create a folder called `context/` with three empty files: about-me.md, my-voice.md, my-preferences.md
-
-3. Create an empty folder called `projects/`
-
-When done, list everything you created so I can verify.
-````
-
----
-
-## Appendix B: Separate interview prompts
-
-Use these if you chose the alternative path in Phase 4.
+Use these instead of the combined Phase 4 interview if you want a deeper, more thorough exploration of each area — one file at a time.
 
 ### About-me interview
 
