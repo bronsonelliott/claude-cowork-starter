@@ -1,12 +1,14 @@
 # START HERE
 
-Welcome. This folder is your pre-built Claude Cowork workspace. The structure and rules are already done. You just need to personalize it.
+This is how I set up Claude Cowork. The structure and rules are pre-built. If you want to try it, you just need to personalize it for yourself.
 
-## Three steps to get going
+Not sure this is even right for you? Read [README.md](README.md) first. Claude's built-in Personal Preferences might cover what you need without any of this.
+
+## Three steps to try it
 
 ### 1. Rename this folder
 
-Rename `Cowork-Workspace-Starter` to anything you want. Most people use `Cowork-Workspace`. Pick something meaningful to you.
+Rename `Cowork-Workspace-Starter` to anything you want. I call mine `Cowork-Workspace`. Pick something meaningful to you.
 
 ### 2. Open the folder in Cowork
 
@@ -27,8 +29,8 @@ That's it. You're set up.
 ```
 Cowork-Workspace-Starter/
 ├── START-HERE.md           (you are here)
-├── README.md               (full setup guide, read if you want depth)
-├── CLAUDE.md               (workspace rules, already written for you)
+├── README.md               (full writeup, read if you want the why)
+├── CLAUDE.md               (workspace rules, already written)
 ├── context/                (who you are, your current work, your voice, your preferences)
 ├── prompts/                (copy-paste prompts for setup, projects, etc.)
 └── projects/               (your project folders go here)
@@ -36,12 +38,12 @@ Cowork-Workspace-Starter/
 
 ## When you need more
 
-- **`README.md`**: the full setup guide with troubleshooting, advanced setup, and how to migrate existing preferences
-- **`prompts/`**: every prompt you'll ever need is in here, ready to copy
+- **`README.md`**: the full walkthrough with troubleshooting, advanced setup, and how to migrate existing preferences
+- **`prompts/`**: every prompt you'll need is in here, ready to copy
 - **`projects/README.md`**: explains how project folders work
 
 ## One rule to remember
 
 **Always select your workspace folder when launching Cowork. Never a subfolder.**
 
-If you ever feel like Claude has "forgotten" who you are, that's almost always why.
+If Claude ever seems to have "forgotten" who you are, that's almost always why.

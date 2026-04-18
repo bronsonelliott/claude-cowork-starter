@@ -1,59 +1,61 @@
-# Setting Up Claude Cowork: A Step-by-Step Guide
+# How I Use Claude Cowork
 
-A no-install, no-code setup for your Claude Cowork workspace. Works for total beginners, scales up to power users, and works the same way in Claude Code if you use both.
+This is my personal Claude Cowork setup. I'm putting it on GitHub because a few people asked how I organize my work with Claude, and it was easier to share the whole thing than explain it in DMs.
+
+If this is useful to you, borrow whatever works. If not, no worries. It's built around how my brain works, which might not map to yours.
 
 ---
 
 ## What this is
 
-A walkthrough for setting up a Claude Cowork workspace from scratch. You'll end up with:
+A walkthrough of how I set up my Cowork workspace:
 
-- A dedicated workspace folder on your computer
-- Context files that tell Claude who you are, how you work, and what "good" looks like
+- A dedicated workspace folder on my computer
+- Context files that tell Claude who I am, how I work, and what "good" looks like
 - A project structure that keeps every project self-contained and portable
-- Zero plugins installed, zero command-line work required
+- Zero plugins, zero command-line work
 
-Built for anyone, technical or not.
+I'm not a developer. It's all copy-paste prompts and folder creation.
 
-> **Two ways to use this guide.** The default path is **copy-paste prompts**: you create an empty folder and Claude builds the structure for you. No download needed. If you'd rather have everything pre-built, there's an **optional starter download** in [Phase 3](#phase-3-build-the-workspace-structure) (ZIP or GitHub template). Either path lands you at the same spot.
+> **Two paths through this guide.** The default is **copy-paste prompts**: you create an empty folder and Claude builds the structure. If you'd rather have everything pre-built, there's an **optional starter download** in [Phase 3](#phase-3-build-the-workspace-structure). Same end result either way.
 
 ---
 
 ## Should you even do this?
 
-Honest answer: not everyone needs this. Claude's **Personal Preferences** (Settings → Personal Preferences in the desktop app) covers 80% of what most people need with zero setup. Before you spend 30 minutes building a workspace, make sure you actually need one.
+Probably not, if I'm being honest. Claude's **Personal Preferences** (Settings → Personal Preferences in the desktop app) covers 80% of what most people need with zero setup. I built this because a paragraph stopped being enough for me.
 
-### Use Personal Preferences if:
+### Personal Preferences is probably fine if:
 
 - You have one context (one job, one domain, one set of priorities)
 - You work solo and rarely change jobs, teams, or tools
 - You want zero setup and one place to edit
 - You just want Claude to know your name, role, tone, and a few rules
 
-### Use this starter if:
+### I built this because:
 
-- You run multiple domains (day job + side projects + consulting + creative work) and don't want them bleeding into each other
-- You want Claude to remember project-specific context that shouldn't leak into other conversations
-- You want your context to be portable, version-controlled, or shareable with a collaborator
-- You want project folders with their own rules, inputs, and outputs
-- You want to update "what I do at work" without rewriting your whole identity
+- I run multiple domains (day job, side projects, teaching, tinkering) that I don't want bleeding into each other
+- I wanted Claude to remember project-specific context that shouldn't leak into other conversations
+- I wanted my context portable and version-controlled
+- I wanted project folders with their own rules, inputs, and outputs
+- I wanted to update "what I do at work" without rewriting my whole identity
 
-### They're not mutually exclusive
+### You can do both
 
-A lot of power users keep universal stuff (tone, hard rules, always/never lists) in Personal Preferences and put domain-specific context in workspaces. If that sounds right, do both.
+I keep universal stuff (tone, hard rules, always/never lists) in Personal Preferences and put domain-specific context in this workspace. If that sounds right, do both.
 
-**Still unsure?** Start with Personal Preferences. You can always come back to this guide when one file stops being enough.
+**Still unsure?** Start with Personal Preferences. Come back here if and when one file stops being enough.
 
 ---
 
-## The philosophy in 60 seconds
+## How this works (60 seconds)
 
-Claude Cowork automatically reads a file called `CLAUDE.md` when you open a folder. That auto-read is the only built-in feature. Everything else you've seen online (different folder layouts, naming conventions, templates) is just different opinions on what to put inside that file and which other files to put next to it.
+Claude Cowork automatically reads a file called `CLAUDE.md` when you open a folder. That auto-read is the only built-in feature. Everything else you've seen online (folder layouts, naming conventions, templates) is just different opinions on what to put inside that file and which other files to put next to it.
 
-This guide uses five principles:
+My setup uses five principles:
 
-1. **A CLAUDE.md file at the top of your workspace folder** loads automatically every session. No settings to configure.
-2. **Context files in a `context/` folder** describe who you are, your voice, your preferences, and your current work situation.
+1. **A CLAUDE.md file at the top of my workspace folder** loads automatically every session. No settings to configure.
+2. **Context files in a `context/` folder** describe who I am, my voice, my preferences, and my current work situation.
 3. **Each project is self-contained** with its own folder, rules, inputs, and outputs.
 4. **Settings stay minimal.** Everything important lives in the workspace folder so it's portable.
 5. **Works in Claude Code too.** The same folder structure is recognized by both tools.
@@ -64,15 +66,15 @@ One folder. One convention. Everything else is personal style.
 
 ## The five layers of context (good to know)
 
-When Claude opens a conversation, it reads context from up to five places. This guide uses the bottom three:
+When Claude opens a conversation, it reads context from up to five places. My setup uses the bottom three:
 
-| Layer | Scope | Portable? | This guide uses it? |
+| Layer | Scope | Portable? | How I use it |
 |---|---|---|---|
 | 1. Claude Personal Preferences | All Claude products | No | Keep minimal or empty |
 | 2. Cowork Global Instructions | All Cowork sessions | No | Keep empty |
-| 3. Workspace CLAUDE.md | One workspace folder | Yes | Main place your rules live |
+| 3. Workspace CLAUDE.md | One workspace folder | Yes | Where my rules live |
 | 4. Project CLAUDE.md | One project subfolder | Yes | Per-project overrides |
-| 5. Context files (via CLAUDE.md) | Referenced by workspace CLAUDE.md | Yes | Detailed context about you |
+| 5. Context files (via CLAUDE.md) | Referenced by workspace CLAUDE.md | Yes | Detailed context about me |
 
 **Rule of thumb:** if it fits in your workspace folder, put it there. Only use settings fields for things that must also apply OUTSIDE Cowork.
 
@@ -139,7 +141,7 @@ Two methods. Pick one. They land in the same spot.
 
 ### Method A: Have Claude build it for you (default, no download)
 
-This is the recommended path. Copy the prompt below into Claude. Takes about 30 seconds.
+This is what I'd start with. Copy the prompt below into Claude. Takes about 30 seconds.
 
 ````
 I'm setting up my Cowork workspace for the first time. Please create this exact structure in my current workspace folder:
@@ -325,9 +327,9 @@ The whole project stays together. If you need to hand it off or archive it, zip 
 
 ## Phase 7: Ongoing habits
 
-Three habits that keep this system working:
+Three habits I stick to:
 
-1. **Always select your Cowork-Workspace folder when launching Cowork.** Never select a project subfolder. Your Cowork-Workspace folder is where your global context lives. If you start inside a project folder instead, Claude won't see your context files.
+1. **Always select the workspace folder when launching Cowork.** Never a project subfolder. The workspace folder is where global context lives. If you start inside a project folder, Claude won't see your context files.
 2. **Update context files when things change.** New role, new team, new tool? Just tell Claude: *"Update my my-work.md, I'm on the Payments team now."* The `my-work.md` file is the one that churns most, rewrite it any time your job changes.
 3. **Keep context files tight.** If any one file gets over 2,000 words, trim it. Long context files slow down every session.
 
@@ -339,7 +341,7 @@ Three habits that keep this system working:
 
 Drop a new `.md` file into `context/`. Claude picks it up automatically at the next session start. The instruction "read all files in `context/`" handles any number of files. No CLAUDE.md edits required.
 
-Common files users add as they grow:
+Files I've added to mine over time, or seen make sense for other people:
 
 - `technical-preferences.md`: coding, testing, security, version control rules
 - `industry-terms.md`: glossary of jargon specific to your field
@@ -357,7 +359,7 @@ Only when you want Claude to treat one file differently from the others. For exa
 
 Without these explicit instructions, Claude treats all context files with equal importance, which is usually fine.
 
-### Graduating to project-level overrides
+### Moving rules into specific projects
 
 When a rule only applies to ONE project, move it out of `context/` and into that project's CLAUDE.md:
 
@@ -483,7 +485,7 @@ If you're happy with your existing Personal Preferences and don't want to change
 2. Run this guide, but during the interviews, skip questions that are already answered in your settings
 3. Keep your workspace context files focused on workspace-specific info only (voice patterns, project conventions, tools), not personal info already in settings
 
-**Avoid at all costs:** putting the same info in both places. It doubles what Claude has to read at the start of every session, makes conversations slower, and creates headaches when you update one copy and forget the other.
+**One thing I'd avoid:** putting the same info in both places. It doubles what Claude has to read at the start of every session, makes conversations slower, and creates headaches when you update one copy and forget the other.
 
 ---
 
@@ -577,4 +579,4 @@ Then verify CLAUDE.md at the workspace root contains an instruction to read all 
 
 ## One-line summary
 
-Create a folder, drop a CLAUDE.md in it that tells Claude to read all files in `context/` at session start, put your context files in that `context/` subfolder, and let Claude auto-load everything. That's the whole system. Everything else in this guide is implementation detail.
+Create a folder, drop a CLAUDE.md in it that tells Claude to read all files in `context/` at session start, put your context files in that `context/` subfolder, and let Claude auto-load everything. That's the whole system. Everything else here is implementation detail.
