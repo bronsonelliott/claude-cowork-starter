@@ -19,6 +19,33 @@ Built for anyone, technical or not.
 
 ---
 
+## Should you even do this?
+
+Honest answer: not everyone needs this. Claude's **Personal Preferences** (Settings → Personal Preferences in the desktop app) covers 80% of what most people need with zero setup. Before you spend 30 minutes building a workspace, make sure you actually need one.
+
+### Use Personal Preferences if:
+
+- You have one context (one job, one domain, one set of priorities)
+- You work solo and rarely change jobs, teams, or tools
+- You want zero setup and one place to edit
+- You just want Claude to know your name, role, tone, and a few rules
+
+### Use this starter if:
+
+- You run multiple domains (day job + side projects + consulting + creative work) and don't want them bleeding into each other
+- You want Claude to remember project-specific context that shouldn't leak into other conversations
+- You want your context to be portable, version-controlled, or shareable with a collaborator
+- You want project folders with their own rules, inputs, and outputs
+- You want to update "what I do at work" without rewriting your whole identity
+
+### They're not mutually exclusive
+
+A lot of power users keep universal stuff (tone, hard rules, always/never lists) in Personal Preferences and put domain-specific context in workspaces. If that sounds right, do both.
+
+**Still unsure?** Start with Personal Preferences. You can always come back to this guide when one file stops being enough.
+
+---
+
 ## The philosophy in 60 seconds
 
 Claude Cowork automatically reads a file called `CLAUDE.md` when you open a folder. That auto-read is the only built-in feature. Everything else you've seen online (different folder layouts, naming conventions, templates) is just different opinions on what to put inside that file and which other files to put next to it.
