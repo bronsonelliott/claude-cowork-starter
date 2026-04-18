@@ -47,4 +47,4 @@ The whole project stays together in one folder. If you ever need to archive, sha
 
 ## A note on project CLAUDE.md files
 
-The project CLAUDE.md stacks on top of your main workspace CLAUDE.md. Both load when you work inside that project. Project-specific rules WIN over workspace rules when they conflict — so use it to override defaults for just that project.
+The project CLAUDE.md stacks on top of your main workspace CLAUDE.md. Both load when you work inside that project. Project-specific rules WIN over workspace rules when they conflict, so use it to override defaults for just that project.

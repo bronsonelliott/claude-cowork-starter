@@ -26,7 +26,7 @@ Claude Cowork automatically reads a file called `CLAUDE.md` when you open a fold
 This guide uses five principles:
 
 1. **A CLAUDE.md file at the top of your workspace folder** loads automatically every session. No settings to configure.
-2. **Context files in a `context/` folder** describe who you are, your voice, and your preferences.
+2. **Context files in a `context/` folder** describe who you are, your voice, your preferences, and your current work situation.
 3. **Each project is self-contained** with its own folder, rules, inputs, and outputs.
 4. **Settings stay minimal.** Everything important lives in the workspace folder so it's portable.
 5. **Works in Claude Code too.** The same folder structure is recognized by both tools.
@@ -139,7 +139,7 @@ When I start a new project:
 This workspace may be used in both Cowork and Claude Code. Use relative paths and generic tool references so instructions work in either environment.
 ---
 
-2. Create a folder called `context/` with three empty files: about-me.md, my-voice.md, my-preferences.md
+2. Create a folder called `context/` with four empty files: about-me.md, my-work.md, my-voice.md, my-preferences.md
 
 3. Create an empty folder called `projects/`
 
@@ -163,6 +163,7 @@ Cowork-Workspace/
 ├── CLAUDE.md
 ├── context/
 │   ├── about-me.md
+│   ├── my-work.md
 │   ├── my-voice.md
 │   └── my-preferences.md
 └── projects/
@@ -174,17 +175,26 @@ If you used [Method B](#method-b-download-the-pre-built-starter-optional-shortcu
 
 ## Phase 4: Fill out your context files
 
-**Step 7. Run the setup interview.** Copy the prompt below into Claude. It will interview you for about 15 minutes and write your three context files automatically.
+**Step 7. Run the setup interview.** Copy the prompt below into Claude. It will interview you for about 20 minutes and write your four context files automatically.
 
 ````
-Interview me to fill out all three of my context files at once: about-me.md, my-voice.md, and my-preferences.md.
+Interview me to fill out all four of my context files at once: about-me.md, my-work.md, my-voice.md, and my-preferences.md.
 
-Use AskUserQuestion, one question at a time. Ask roughly 12-15 questions total covering:
+Use AskUserQuestion, one question at a time. Ask roughly 15-19 questions total covering:
 
-WHO I AM (3-4 questions)
-- Role, industry, audience
-- How I work (tools, process, what "done" looks like)
-- What a good week looks like
+WHO I AM (3-4 questions): professional identity that stays stable across jobs
+- The kind of work I do, my field, years of experience
+- How I think and approach my work (not tools, approach)
+- What good work looks like in my field, and what bad work looks like
+- My rules and non-negotiables
+
+MY WORK (3-4 questions): current employment situation
+- My current company (name, what it does, stage/size)
+- My role and what I own
+- My team (key collaborators by name, 3-7 people Claude should recognize)
+- Tools I use daily
+- Who my customers or users are
+- What I'm focused on right now (current goals or priorities)
 
 MY VOICE (3-4 questions. SKIP if I don't create written content)
 - Tone and voice I use
@@ -200,8 +210,9 @@ MY PREFERENCES (4-5 questions)
 
 If I say "that's enough," stop and compile what we have.
 
-After the interview, write three separate files:
+After the interview, write four separate files:
 - `context/about-me.md` (under 1,500 tokens)
+- `context/my-work.md` (under 1,000 tokens)
 - `context/my-voice.md` (under 1,000 tokens). Skip if I don't create content.
 - `context/my-preferences.md` (under 1,000 tokens)
 
@@ -227,6 +238,7 @@ Run a setup verification on my Cowork workspace. Check the following and report 
 
 2. Did you read the files in `context/`? Tell me what you learned about:
    - Who I am (from about-me.md)
+   - My current work situation (from my-work.md)
    - My voice (from my-voice.md, if filled in)
    - My preferences (from my-preferences.md)
 
@@ -289,7 +301,7 @@ The whole project stays together. If you need to hand it off or archive it, zip 
 Three habits that keep this system working:
 
 1. **Always select your Cowork-Workspace folder when launching Cowork.** Never select a project subfolder. Your Cowork-Workspace folder is where your global context lives. If you start inside a project folder instead, Claude won't see your context files.
-2. **Update context files when things change.** New role? New tool? Just tell Claude: *"Update my about-me.md, I'm now doing X."*
+2. **Update context files when things change.** New role, new team, new tool? Just tell Claude: *"Update my my-work.md, I'm on the Payments team now."* The `my-work.md` file is the one that churns most, rewrite it any time your job changes.
 3. **Keep context files tight.** If any one file gets over 2,000 words, trim it. Long context files slow down every session.
 
 ---
@@ -383,8 +395,9 @@ I'm migrating my existing Claude preferences into my workspace context files. Be
 
 1. Read through it carefully.
 
-2. Split the content across my three context files based on what each section is about:
-   - `context/about-me.md` → who I am, role, background, how I think, my situation
+2. Split the content across my four context files based on what each section is about:
+   - `context/about-me.md` → who I am as a professional, field, experience, how I think, my craft-level standards (stuff that stays true across jobs)
+   - `context/my-work.md` → my current company, role, team, tools, customers, current priorities (stuff that changes when my job changes)
    - `context/my-voice.md` → how I write or speak, tone, words I use or avoid (skip if not applicable)
    - `context/my-preferences.md` → how I want you to communicate with me, formatting, working style, rules, error handling
 
@@ -413,7 +426,7 @@ I'm migrating my existing Claude preferences into my workspace context files. Be
      ```
    - If it DOES exist, confirm it contains an instruction to read all files in `context/` at session start. If it doesn't, add one under a "Session start behavior" heading without removing anything else.
 
-5. Show me a summary of what content went into each file, whether CLAUDE.md was created or updated, and flag anything that didn't clearly fit in one of the three context files so I can decide where it goes.
+5. Show me a summary of what content went into each file, whether CLAUDE.md was created or updated, and flag anything that didn't clearly fit in one of the four context files so I can decide where it goes.
 
 After you're done, I'll review the files. If they look good, I'll clear my Settings to avoid duplicate context.
 
@@ -469,16 +482,36 @@ Use these instead of the combined [Phase 4](#phase-4-fill-out-your-context-files
 ### About-me interview
 
 ````
-Interview me to fill out my about-me.md file. Use AskUserQuestion, one question at a time, covering:
-- Who I am (role, industry, audience)
-- How I work (tools, process, what "done" looks like)
+Interview me to fill out my about-me.md file. This file captures my professional identity, the stuff that stays stable across jobs. Use AskUserQuestion, one question at a time, covering:
+- The kind of work I do, my field, years of experience
+- How I think and approach my work (approach, not tools)
 - What good work looks like in my field
 - What bad work looks like (things I hate)
 - My rules and non-negotiables
 
-Ask 10-12 questions total. If I say "that's enough," stop and compile what we have.
+Do NOT ask about my current company, team, or tools. That's for my-work.md.
+
+Ask 8-10 questions total. If I say "that's enough," stop and compile what we have.
 
 After the interview, write the result to `context/about-me.md` in under 1,500 tokens. Use clear section headers. If the `context/` folder doesn't exist yet, create it.
+
+Then verify CLAUDE.md at the workspace root contains an instruction to read all files in `context/` at session start. If it does, you're done. If it doesn't, tell me so I can run the Phase 3 setup prompt before we continue.
+````
+
+### My-work interview
+
+````
+Interview me to fill out my my-work.md file. This file captures my current employment situation. Use AskUserQuestion, one question at a time, covering:
+- My current company (name, what it does, stage/size)
+- My role and scope (title, what I own, what I'm accountable for)
+- My team (3-7 key collaborators by name with a one-line descriptor each)
+- Tools I use daily (software, platforms)
+- Who my customers or users are
+- What I'm focused on right now (current goals, quarterly priorities)
+
+Ask 6-8 questions total. If I say "that's enough," stop and compile what we have.
+
+After the interview, write the result to `context/my-work.md` in under 1,000 tokens. Use clear section headers. If the `context/` folder doesn't exist yet, create it.
 
 Then verify CLAUDE.md at the workspace root contains an instruction to read all files in `context/` at session start. If it does, you're done. If it doesn't, tell me so I can run the Phase 3 setup prompt before we continue.
 ````

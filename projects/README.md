@@ -4,18 +4,18 @@ This folder is where each of your projects lives. Each project is self-contained
 
 ## Don't create project folders by hand
 
-Use the prompt in `prompts/02-new-project.md` — it handles folder creation AND asks you a few questions to fill in the project's CLAUDE.md automatically. Much less work than doing it manually.
+Use the prompt in `prompts/02-new-project.md`. It handles folder creation AND asks you a few questions to fill in the project's CLAUDE.md automatically. Much less work than doing it manually.
 
 ## What a project folder looks like
 
 ```
 projects/
 └── my-project-name/
-    ├── CLAUDE.md          ← project-specific rules (tone, format, audience)
-    ├── inputs/            ← research, references, source material
+    ├── CLAUDE.md          (project-specific rules: tone, format, audience)
+    ├── inputs/            (research, references, source material)
     │   ├── research.pdf
     │   └── data.xlsx
-    └── outputs/           ← finished deliverables ready to share
+    └── outputs/           (finished deliverables ready to share)
         └── final-report.docx
 ```
 
@@ -30,4 +30,4 @@ Both apply. The project rules win when they conflict. So use project CLAUDE.md f
 
 ## A good habit
 
-When you finish a project, consider zipping the whole project folder and storing it somewhere for reference. Because everything lives together — inputs, working files, outputs, project rules — you have a complete record of the work.
+When you finish a project, consider zipping the whole project folder and storing it somewhere for reference. Because everything lives together (inputs, working files, outputs, project rules), you have a complete record of the work.

@@ -1,9 +1,9 @@
 # My Preferences
 
 <!--
-This file describes how you want Claude to communicate WITH you — your interaction style, formatting preferences, and working rules.
+This file describes how you want Claude to communicate WITH you: your interaction style, formatting preferences, and working rules.
 
-Run the setup interview (`prompts/01-setup-interview.md`) to fill this out automatically — or fill it in manually using the section headers below as a guide.
+Run the setup interview (`prompts/01-setup-interview.md`) to fill this out automatically, or fill it in manually using the section headers below as a guide.
 
 Target length: under 1,000 tokens.
 -->
